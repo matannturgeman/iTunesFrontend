@@ -9,16 +9,33 @@ import {
 import SearchScreen from '../screens/SearchScreen'
 import SongDetails from '../screens/SongDetails'
 
+import {
+    Provider,
+    KeepAlive,
+} from 'react-keep-alive';
+
 const RouterComponent = props => {
+
+    const renderComponent = (componentProps, component) => (
+        <KeepAlive name={component.name}>
+            <SearchScreen {...componentProps} />
+        </KeepAlive>
+    )
 
     return (
         <Router>
-            <Switch>
-                <Route path="/searchScreen" component={SearchScreen} />
-                <Route path="/songDetails" component={SongDetails} />
-                <Redirect from="/" to="/searchScreen" />
-            </Switch>
+            <Provider>
+                <Switch>
+                    <Route
+                        path="/searchScreen"
+                        render={componentProps => renderComponent(componentProps, SearchScreen)}
+                    />
+                    <Route path="/songDetails" component={SongDetails} />
+                    <Redirect from="/" to="/searchScreen" />
+                </Switch>
+            </Provider>
         </Router>
+
     )
 
 }

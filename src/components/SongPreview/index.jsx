@@ -22,4 +22,6 @@ const SongPreview = props => {
     )
 }
 
+
+// export default (SongPreview)
 export default withRouter(SongPreview)

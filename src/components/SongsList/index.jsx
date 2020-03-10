@@ -8,7 +8,7 @@ const SongsList = props => {
         <div>
             {
                 songs.map(song => (
-                    <SongPreview song={song} key={song.trackId}/>
+                    <SongPreview song={song} key={song.trackId} />
                 ))
             }
         </div>

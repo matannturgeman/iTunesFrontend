@@ -4,12 +4,13 @@ import Input from '../../components/Input'
 import { getCollections } from '../../services/ituneService'
 import Loader from '../../components/Loader'
 import SongsList from '../../components/SongsList'
+
 import './index.scss'
 
 const SearchScreen = props => {
+    console.log('props', props)
     const [value, setValue] = useState('')
 
-    //turn these into store items
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [songs, setSongs] = useState(null)
@@ -32,27 +33,30 @@ const SearchScreen = props => {
         }
     }
 
-    const renderMain = () => (
-        <div className="songs-list-display">
-            <SongsList songs={songs} />
-        </div>
-    )
-
     return (
         <section className="search-screen">
+            <h1>Welcome to the iTunes app</h1>
             <form onSubmit={handleSubmit} className="search-form">
                 <Input label="Search" onChange={handleChange} value={value} />
-                <Button variant="contained" size="medium" color="primary" type="submit">
+                <Button variant="contained" size="small" color="primary" type="submit">
                     Submit
                 </Button>
             </form>
-            {
-                loading ?
-                    <Loader />
-                    : error ?
-                        <h3>An error has occurred, please try again later</h3>
-                        : renderMain()
-            }
+
+            <Button variant="contained" size="small" color="primary">
+                Top 10
+            </Button>
+
+
+            <div className="songs-list-display">
+                {
+                    loading ?
+                        <Loader />
+                        : error ?
+                            <h3>An error has occurred, please try again later</h3>
+                            : <SongsList songs={songs} />
+                }
+            </div>
         </section>
     )
 }

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Input from '../../components/Input'
 import { getCollections } from '../../services/ituneService'
 import Loader from '../../components/Loader'
-import CollectionsList from '../../components/CollectionsList'
+import SongsList from '../../components/SongsList'
 import './index.scss'
 
 const SearchScreen = props => {
@@ -12,7 +12,7 @@ const SearchScreen = props => {
     //turn these into store items
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-    const [collections, setCollections] = useState(null)
+    const [songs, setSongs] = useState(null)
 
     const handleChange = e => {
         setValue(e.target.value)
@@ -23,7 +23,7 @@ const SearchScreen = props => {
             e.preventDefault()
             setLoading(true)
             const result = await getCollections(value)
-            setCollections(result)
+            setSongs(result)
             setLoading(false)
 
         } catch (err) {
@@ -33,9 +33,8 @@ const SearchScreen = props => {
     }
 
     const renderMain = () => (
-        // <div>{collections? collections.length : null}</div>
-        <div className="collections-list-display">
-            <CollectionsList collections={collections} />
+        <div className="songs-list-display">
+            <SongsList songs={songs} />
         </div>
     )
 

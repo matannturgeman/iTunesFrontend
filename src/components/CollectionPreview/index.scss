@@ -1,0 +1,17 @@
+.collection-preview {
+  margin: 10px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f4f5ff;
+  }
+  .track-name,
+  .album-name,
+  .track-price,
+  .collection-price {
+    text-align: center;
+  }
+}

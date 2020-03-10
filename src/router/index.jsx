@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import SearchScreen from '../screens/SearchScreen'
-import SongDetails from '../screens/SongDetails'
+import TuneDetails from '../screens/TuneDetails'
 
 import {
     Provider,
@@ -30,7 +30,7 @@ const RouterComponent = props => {
                         path="/searchScreen"
                         render={componentProps => renderComponent(componentProps, SearchScreen)}
                     />
-                    <Route path="/songDetails" component={SongDetails} />
+                    <Route path="/tuneDetails" component={TuneDetails} />
                     <Redirect from="/" to="/searchScreen" />
                 </Switch>
             </Provider>

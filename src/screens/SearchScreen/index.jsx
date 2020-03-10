@@ -3,8 +3,7 @@ import Button from '@material-ui/core/Button';
 import Input from '../../components/Input'
 import { getCollections } from '../../services/ituneService'
 import Loader from '../../components/Loader'
-import SongsList from '../../components/SongsList'
-
+import TunesList from '../../components/TunesList'
 import './index.scss'
 
 const SearchScreen = props => {
@@ -13,7 +12,7 @@ const SearchScreen = props => {
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-    const [songs, setSongs] = useState(null)
+    const [tunes, setTunes] = useState(null)
 
     const handleChange = e => {
         setValue(e.target.value)
@@ -24,7 +23,7 @@ const SearchScreen = props => {
             e.preventDefault()
             setLoading(true)
             const result = await getCollections(value)
-            setSongs(result)
+            setTunes(result)
             setLoading(false)
 
         } catch (err) {
@@ -48,13 +47,13 @@ const SearchScreen = props => {
             </Button>
 
 
-            <div className="songs-list-display">
+            <div className="tunes-list-display">
                 {
                     loading ?
                         <Loader />
                         : error ?
                             <h3>An error has occurred, please try again later</h3>
-                            : <SongsList songs={songs} />
+                            : <TunesList tunes={tunes} />
                 }
             </div>
         </section>

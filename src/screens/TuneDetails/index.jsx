@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import './index.scss'
 
-const SongDetails = props => {
+const TuneDetails = props => {
     const { location, history } = props
-    if (!location.state || !location.state.song) {
+    if (!location.state || !location.state.tune) {
         history.push('/')
         return null;
     }
@@ -20,26 +20,28 @@ const SongDetails = props => {
         trackPrice, collectionPrice, trackViewUrl,
         collectionViewUrl, artworkUrl100, releaseDate,
         previewUrl, artistViewUrl, kind
-    } = location.state.song
+    } = location.state.tune
 
     console.log('kind', kind)
 
     return (
-        <section className="song-details">
+        <section className="tune-details">
             <Link to="/">
                 <FontAwesomeIcon icon={faArrowLeft} />
             </Link>
             <div className="details">
-                <img src={artworkUrl100} />
-                <h4 className="track-name">
-                    <LinkMUI href={artistViewUrl} target="_blank">{artistName}</LinkMUI>: <LinkMUI href={trackViewUrl} target="_blank">{trackName}</LinkMUI>
-                </h4>
-                <h4 className="album-name">
-                    From Album:  <LinkMUI href={collectionViewUrl} target="_blank">{collectionName}</LinkMUI>
-                </h4>
-                <h4 className="album-name">Release in {formatDate(releaseDate)}</h4>
-                <h4 className="track-price">Buy now only at: {trackPrice}$</h4>
-                <h4 className="collection-price">Or get the whole album at: {collectionPrice}$</h4>
+                <img src={artworkUrl100} className="preview-img" />
+                <div className="details-info">
+                    <h4 className="track-name">
+                        <LinkMUI href={artistViewUrl} target="_blank">{artistName}</LinkMUI>: <LinkMUI href={trackViewUrl} target="_blank">{trackName}</LinkMUI>
+                    </h4>
+                    <h4 className="album-name">
+                        From Album:  <LinkMUI href={collectionViewUrl} target="_blank">{collectionName}</LinkMUI>
+                    </h4>
+                    <h4 className="album-name">Release in {formatDate(releaseDate)}</h4>
+                    <h4 className="track-price">Buy now only at: {trackPrice}$</h4>
+                    <h4 className="collection-price">Or get the whole album at: {collectionPrice}$</h4>
+                </div>
             </div>
 
 
@@ -49,23 +51,25 @@ const SongDetails = props => {
                         src={previewUrl}
                         controls
                     />
-                    : <ReactPlayer
-                        url={previewUrl}
-                        controls
-                        width="100%"
-                        height="100%"
-                    />
+                    : <div className="video-container">
+                        <ReactPlayer
+                            url={previewUrl}
+                            controls
+                            width="100%"
+                            height="100%"
+                        />
+                    </div>
             }
         </section>
     )
 }
 
-export default SongDetails
+export default TuneDetails
 
 
 
 // wrapperType: "track"
-// kind: "song"
+// kind: "tune"
 // artistId: 1973668
 // collectionId: 330253758
 // trackId: 330253858

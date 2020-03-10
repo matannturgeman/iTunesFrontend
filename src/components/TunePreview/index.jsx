@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom';
 import './index.scss'
 
-const SongPreview = props => {
-    const { song, history } = props
-    if (!song) return null
-    const { artistName, collectionName, trackName, artworkUrl100 } = song
+const TunePreview = props => {
+    const { tune, history } = props
+    if (!tune) return null
+    const { artistName, collectionName, trackName, artworkUrl100 } = tune
 
     const goToCollectionDisplay = () => {
-        history.push('/songDetails', { song })
+        history.push('/tuneDetails', { tune })
     }
 
     return (
-        <section className="song-preview" onClick={goToCollectionDisplay}>
+        <section className="tune-preview" onClick={goToCollectionDisplay}>
             <img src={artworkUrl100} />
-            <div className="song-preview-details">
+            <div className="tune-preview-details">
                 <h4 className="track-name">{artistName}: {trackName}</h4>
                 <h4 className="album-name">From Album: {collectionName}</h4>
             </div>
@@ -23,5 +23,5 @@ const SongPreview = props => {
 }
 
 
-// export default (SongPreview)
-export default withRouter(SongPreview)
+// export default (TunePreview)
+export default withRouter(TunePreview)

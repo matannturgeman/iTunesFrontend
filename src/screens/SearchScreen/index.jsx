@@ -1,34 +1,55 @@
 import React, { useState, useEffect } from 'react'
-import Button from '@material-ui/core/Button';
-import Input from '../../components/Input'
-import { getCollections } from '../../services/ituneService'
-import Loader from '../../components/Loader'
+import { getCollections, addTop10 } from '../../services/ituneService'
 import TunesList from '../../components/TunesList'
+import Button from '@material-ui/core/Button';
+import Loader from '../../components/Loader'
+import Input from '../../components/Input'
 import './index.scss'
 
+
 const SearchScreen = props => {
-    console.log('props', props)
+    const { history } = props
     const [value, setValue] = useState('')
+    const [enterScreen, setEnterScreen] = useState(false)
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [tunes, setTunes] = useState(null)
 
+    useEffect(() => { history.listen(handleEnterScreen) }, [])
+    useEffect(() => { if(enterScreen) handleSubmit() }, [enterScreen, value])
+
+    const handleEnterScreen = location => {
+        if (!location.state) return;
+        setEnterScreen(true)
+        setValue(location.state.search)
+    }
+
     const handleChange = e => {
         setValue(e.target.value)
     }
 
+    const goToTop10 = () => {
+        history.push('/top10Screen')
+    }
+
     const handleSubmit = async e => {
+        console.log('enter', 'handleSubmit');
+        
         try {
-            e.preventDefault()
+            if (e) e.preventDefault()
             setLoading(true)
             const result = await getCollections(value)
             setTunes(result)
+            if (value) addTop10(value)
             setLoading(false)
+            setEnterScreen(false)
 
         } catch (err) {
+            console.log('err', err)
             setError(true)
             setLoading(false)
+            setEnterScreen(false)
         }
     }
 
@@ -42,7 +63,7 @@ const SearchScreen = props => {
                 </Button>
             </form>
 
-            <Button variant="contained" size="small" color="primary">
+            <Button variant="contained" size="small" color="primary" onClick={goToTop10}>
                 Top 10
             </Button>
 

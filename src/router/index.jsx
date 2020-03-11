@@ -5,14 +5,10 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
-
+import { Provider, KeepAlive } from 'react-keep-alive';
 import SearchScreen from '../screens/SearchScreen'
 import TuneDetails from '../screens/TuneDetails'
-
-import {
-    Provider,
-    KeepAlive,
-} from 'react-keep-alive';
+import Top10Screen from '../screens/Top10Screen'
 
 const RouterComponent = props => {
 
@@ -30,6 +26,7 @@ const RouterComponent = props => {
                         path="/searchScreen"
                         render={componentProps => renderComponent(componentProps, SearchScreen)}
                     />
+                    <Route path="/top10Screen" component={Top10Screen} />
                     <Route path="/tuneDetails" component={TuneDetails} />
                     <Redirect from="/" to="/searchScreen" />
                 </Switch>

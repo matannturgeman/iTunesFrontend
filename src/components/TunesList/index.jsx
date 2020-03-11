@@ -3,12 +3,13 @@ import TunePreview from '../TunePreview'
 
 const TunesList = props => {
     const { tunes } = props
+    console.log('tunes', tunes)
     if(!Array.isArray(tunes)) return null;
     return (
         <div>
             {
-                tunes.map(tune => (
-                    <TunePreview tune={tune} key={tune.trackId} />
+                tunes.map((tune, i) => (
+                    <TunePreview tune={tune} key={i} />
                 ))
             }
         </div>

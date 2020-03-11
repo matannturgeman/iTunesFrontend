@@ -55,7 +55,7 @@ const SearchScreen = props => {
 
     return (
         <section className="search-screen">
-            <h1>Welcome to the iTunes app</h1>
+            <h1>Welcome to the iTunes App</h1>
             <form onSubmit={handleSubmit} className="search-form">
                 <Input label="Search" onChange={handleChange} value={value} />
                 <Button variant="contained" size="small" color="primary" type="submit">

@@ -44,22 +44,24 @@ const TuneDetails = props => {
                 </div>
             </div>
 
-
-            {
-                kind === 'song' ?
-                    <ReactAudioPlayer
-                        src={previewUrl}
-                        controls
-                    />
-                    : <div className="video-container">
-                        <ReactPlayer
-                            url={previewUrl}
+            <div className="media-container">
+                {
+                    kind === 'song' ?
+                        <ReactAudioPlayer
+                            src={previewUrl}
                             controls
-                            width="100%"
-                            height="100%"
                         />
-                    </div>
-            }
+                        : <div className="video-container">
+                            <ReactPlayer
+                                url={previewUrl}
+                                controls
+                                width="100%"
+                                height="100%"
+                            />
+                        </div>
+                }
+            </div>
+
         </section>
     )
 }

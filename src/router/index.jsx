@@ -6,11 +6,15 @@ import {
     Redirect,
 } from "react-router-dom";
 import { Provider, KeepAlive } from 'react-keep-alive';
+import Nav from '../components/Nav'
+
 import SearchScreen from '../screens/SearchScreen'
 import TuneDetails from '../screens/TuneDetails'
 import Top10Screen from '../screens/Top10Screen'
 import AuthScreen from '../screens/AuthScreen'
 import SignUpScreen from '../screens/SignUpScreen'
+
+import './index.scss'
 
 const RouterComponent = props => {
 
@@ -22,19 +26,23 @@ const RouterComponent = props => {
 
     return (
         <Router>
-            <Provider>
-                <Switch>
-                    <Route path="/authScreen" component={AuthScreen} />
-                    <Route path="/signUp" component={SignUpScreen} />
-                    <Route
-                        path="/searchScreen"
-                        render={componentProps => renderComponent(componentProps, SearchScreen)}
-                    />
-                    <Route path="/top10Screen" component={Top10Screen} />
-                    <Route path="/tuneDetails" component={TuneDetails} />
-                    <Redirect from="/" to="/authScreen" />
-                </Switch>
-            </Provider>
+            <Nav />
+            <div className="nav-view">
+                <Provider>
+                    <Switch>
+                        <Route path="/authScreen" component={AuthScreen} />
+                        <Route path="/signUp" component={SignUpScreen} />
+                        <Route
+                            path="/searchScreen"
+                            render={componentProps => renderComponent(componentProps, SearchScreen)}
+                        />
+                        <Route path="/top10Screen" component={Top10Screen} />
+                        <Route path="/tuneDetails" component={TuneDetails} />
+                        <Redirect from="/" to="/authScreen" />
+                    </Switch>
+                </Provider>
+            </div>
+
         </Router>
 
     )

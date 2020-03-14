@@ -1,0 +1,28 @@
+.nav-container {
+  display: flex;
+  height: 7%;
+  background: #3f50b5;
+  align-items: center;
+  .welcome-statement {
+    color: white;
+    font-size: 25px;
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .log-out-btn {
+    background: #3f4fb5;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 60%;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+        background: #485bd5;
+    }
+  }
+}

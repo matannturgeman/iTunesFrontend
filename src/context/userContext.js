@@ -1,9 +1,10 @@
 import React, { useReducer, Fragment } from 'react'
 import {
-    LOGIN_USER, LOGIN_USER_STORAGE_KEY, START_LOAD_USER, END_LOAD_USER
+    LOGIN_USER, LOGIN_USER_STORAGE_KEY, START_LOAD_USER, END_LOAD_USER,
+    LOG_OUT
 } from '../constants.json'
 import InitalLogin from '../components/InitalLogin'
-import { saveToStorage } from '../services/utilsService'
+import { saveToStorage, clearFromStorage } from '../services/utilsService'
 
 const initialState = {
     user: null,
@@ -12,7 +13,7 @@ const initialState = {
 
 const UserContext = React.createContext(initialState);
 
-let reducer = (state, action) => {
+const reducer = (state, action) => {
     switch (action.type) {
         case START_LOAD_USER:
             return { ...state, loading: true }
@@ -22,8 +23,11 @@ let reducer = (state, action) => {
         case LOGIN_USER:
             saveToStorage(LOGIN_USER_STORAGE_KEY, { id: action.user._id })
             return { ...state, user: action.user };
+        case LOG_OUT:
+            clearFromStorage(LOGIN_USER_STORAGE_KEY)
+            return { ...state, user: null };
         default:
-            return state;
+            return { ...state };
     }
 };
 

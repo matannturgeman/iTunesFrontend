@@ -2,19 +2,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  position: relative;
   .details {
     display: flex;
     width: 100%;
-    justify-content: center;
+    height: 30%;
     border-bottom: 1px solid #8d8989;
+    align-items: center;
+    justify-content: center;
   }
   .preview-img {
     object-fit: contain;
-    width: 70px;
+    height: 64px;
   }
   .details-info {
+    >h4 {
+      margin: 10px;
+    }
     padding: 20px;
   }
   .media-container {

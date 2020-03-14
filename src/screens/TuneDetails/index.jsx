@@ -6,14 +6,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player'
+import useCheckLoginUser from '../../hooks/useCheckLoginUser'
 import './index.scss'
 
 const TuneDetails = props => {
     const { location, history } = props
+    useCheckLoginUser()
     if (!location.state || !location.state.tune) {
         history.push('/')
         return null;
     }
+
 
     const {
         artistName, trackName, collectionName,
@@ -21,8 +24,6 @@ const TuneDetails = props => {
         collectionViewUrl, artworkUrl100, releaseDate,
         previewUrl, artistViewUrl, kind
     } = location.state.tune
-
-    console.log('kind', kind)
 
     return (
         <section className="tune-details">

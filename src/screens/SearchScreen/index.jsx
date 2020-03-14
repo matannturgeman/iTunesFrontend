@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { getCollections, addTop10 } from '../../services/ituneService'
 import TunesList from '../../components/TunesList'
 import Button from '@material-ui/core/Button';
 import Loader from '../../components/Loader'
 import Input from '../../components/Input'
+import useCheckLoginUser from '../../hooks/useCheckLoginUser'
 import './index.scss'
 
 
@@ -15,8 +16,12 @@ const SearchScreen = props => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [tunes, setTunes] = useState(null)
+    useCheckLoginUser()
 
-    useEffect(() => { history.listen(handleEnterScreen) }, [])
+    useEffect(() => {
+        history.listen(handleEnterScreen)
+    }, [])
+    
     useEffect(() => { if(enterScreen) handleSubmit() }, [enterScreen, value])
 
     const handleEnterScreen = location => {
@@ -34,8 +39,6 @@ const SearchScreen = props => {
     }
 
     const handleSubmit = async e => {
-        console.log('enter', 'handleSubmit');
-        
         try {
             if (e) e.preventDefault()
             setLoading(true)
@@ -46,7 +49,6 @@ const SearchScreen = props => {
             setEnterScreen(false)
 
         } catch (err) {
-            console.log('err', err)
             setError(true)
             setLoading(false)
             setEnterScreen(false)

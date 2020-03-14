@@ -3,8 +3,8 @@ import TunePreview from '../TunePreview'
 
 const TunesList = props => {
     const { tunes } = props
-    console.log('tunes', tunes)
     if(!Array.isArray(tunes)) return null;
+
     return (
         <div>
             {
@@ -14,7 +14,6 @@ const TunesList = props => {
             }
         </div>
     )
-
 }
 
 export default TunesList

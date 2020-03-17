@@ -5,8 +5,6 @@ const BASE_URL = isDev ?
     BACKEND_URL_DEV
     : BACKEND_URL_PROD
 
-console.log('BASE_URL', BASE_URL)
-
 export const getUsers = () => {
     return fetch(`${BASE_URL}/users`, {
         method: 'GET',

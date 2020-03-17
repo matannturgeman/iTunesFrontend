@@ -2,6 +2,8 @@ import React, { useContext, Fragment } from 'react'
 import { UserContext } from '../../context/userContext'
 import { useHistory, Link } from 'react-router-dom'
 import { LOG_OUT } from '../../constants.json'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import './index.scss'
 
 function Nav(props) {
@@ -14,28 +16,31 @@ function Nav(props) {
     }
 
     const renderNavContent = () => (
-        <Fragment>
+        <div className="nav-btns-container">
             <Link className="nav-btn" to="/searchScreen">Search</Link>
-            <Link className="nav-btn" to="/userManagement">users management table</Link>
-            <button className="nav-btn log-out-btn" onClick={logOut}>Log out</button>
-        </Fragment>
+            <Link className="nav-btn" to="/userManagement">Users Table</Link>
+            <FontAwesomeIcon className="log-out-btn" icon={faSignOutAlt} onClick={logOut} />
+        </div>
     )
+
+    const isLogedIn = state.user && state.user.email;
+    const username = isLogedIn ?
+        state.user.email.split('@')[0]
+        : ''
 
     return (
         <nav className="nav-container">
             <h3 className="nav-title">
                 iTunes App
                 {
-                    state.user &&
-                    state.user.email &&
+                    isLogedIn &&
                     <div className="welcome-statement">
-                        Welcome {state.user.email.split('@')[0]}
+                        Welcome {username}
                     </div>
                 }
             </h3>
             {
-                state.user &&
-                state.user.email &&
+                isLogedIn &&
                 renderNavContent()
             }
         </nav>

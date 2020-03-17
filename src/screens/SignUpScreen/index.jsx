@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import InputMUI from '../../components/Input'
 import Button from '@material-ui/core/Button';
+import swal from 'sweetalert';
+
+import InputMUI from '../../components/Input'
 import { addUser } from '../../services/userService'
 import { isValidEmail } from '../../services/utilsService'
-import swal from 'sweetalert';
 import { UserContext } from '../../context/userContext'
 import { LOGIN_USER } from '../../constants.json'
 import './index.scss'
@@ -82,7 +83,6 @@ const SignUpScreen = props => {
             </form>
         </section>
     )
-
 }
 
 export default SignUpScreen

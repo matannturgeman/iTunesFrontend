@@ -7,7 +7,6 @@ import Modal from '../../components/Modal'
 import Table from '../../components/Table'
 import Loader from '../../components/Loader'
 import UpdateUserForm from '../../components/UpdateUserForm'
-
 import useCheckLoginUser from '../../hooks/useCheckLoginUser'
 import { getUsers, deleteUser } from '../../services/userService'
 import { copy } from '../../services/utilsService'

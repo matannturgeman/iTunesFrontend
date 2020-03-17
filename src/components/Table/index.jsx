@@ -5,32 +5,30 @@ import './index.scss'
 
 const TableComponent = props => {
     const { data, actions } = props
+    const defaultFunc = () => { }
     const keys = data ?
         getKeysFromList(data)
         : []
-    const defaultFunc = () => { }
 
     return (
         <Table singleLine className="table">
             <Table.Header>
                 <Table.Row>
                     {
-                        keys.map(key => (
-                            <Table.HeaderCell key={key}>{key}</Table.HeaderCell>
+                        keys.map((key, index) => (
+                            <Table.HeaderCell key={index}>{key}</Table.HeaderCell>
                         ))
-
                     }
                     {
                         actions &&
                         <Table.HeaderCell>Actions</Table.HeaderCell>
                     }
                 </Table.Row>
-
             </Table.Header>
 
             <Table.Body>
                 {
-                    data &&
+                    Boolean(data) &&
                     data.map(item => {
                         const values = Object.values(item) || []
 

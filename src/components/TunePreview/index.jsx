@@ -4,12 +4,10 @@ import './index.scss'
 
 const TunePreview = props => {
     const { tune, history } = props
-    if (!tune) return null
+    if (!tune) return null;
     const { artistName, collectionName, trackName, artworkUrl100 } = tune
 
-    const goToCollectionDisplay = () => {
-        history.push('/tuneDetails', { tune })
-    }
+    const goToCollectionDisplay = () => history.push('/tuneDetails', { tune })
 
     return (
         <section className="tune-preview" onClick={goToCollectionDisplay}>
@@ -22,6 +20,4 @@ const TunePreview = props => {
     )
 }
 
-
-// export default (TunePreview)
 export default withRouter(TunePreview)

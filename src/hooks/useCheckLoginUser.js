@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 const useCheckLoginUser = () => {
     const history = useHistory()
     const { state, dispatch } = useContext(UserContext)
+    
     useEffect(() => { didMount() }, [])
 
     const didMount = () => {

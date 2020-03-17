@@ -41,7 +41,6 @@ const AuthScreen = props => {
                 })
                 return;
             }
-
             if (res.error === 'user-not-found') {
                 swal({
                     title: 'Wrong credentials, please try again',
@@ -83,7 +82,6 @@ const AuthScreen = props => {
             </form>
         </section>
     )
-
 }
 
 export default AuthScreen

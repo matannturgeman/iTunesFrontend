@@ -14,31 +14,62 @@
     margin: 0;
     margin-left: 10px;
     flex-direction: column;
-    .welcome-statement{
+    .welcome-statement {
       font-size: 15px;
       height: fit-content;
     }
   }
-  .nav-btn {
-    text-decoration: none;
-    background: #3f4fb5;
-    color: white;
-    border: 2px solid white;
-    border-radius: 5px;
-    height: 60%;
-    font-size: 13px;
-    font-weight: bold;
+  .nav-btns-container {
     display: flex;
-    cursor: pointer;
     align-items: center;
-    padding: 2px 9px;
+    width:auto;
+    height: 100%;
+    justify-content: space-between;
+    width: 60%;
+    .nav-btn {
+      text-decoration: none;
+      background: #3f4fb5;
+      color: white;
+      border: 2px solid white;
+      border-radius: 5px;
+      height: 60%;
+      font-size: 13px;
+      font-weight: bold;
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      padding: 2px 9px;
 
-    &.log-out-btn{
-      margin-right: 10px;
 
-    }
-    &:hover {
+      &:hover {
         background: #485bd5;
+      }
+    }
+    .log-out-btn {
+      font-size: 34px;
+      color: white;
+      margin-right: 12px;
+      cursor: pointer;
+      &:hover {
+        color: #cac9c9
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-container {
+    .nav-title {
+      font-size:20px;
+      .welcome-statement{
+        font-size: 12px;
+      }
+    }
+    .nav-btns-container {
+      .nav-btn {
+        font-size: 11px;
+        padding: 5px;
+      }
     }
   }
 }

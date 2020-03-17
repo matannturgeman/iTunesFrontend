@@ -24,9 +24,10 @@ const initalState = {
 function UserManagementScreen(props) {
     useCheckLoginUser()
 
+    const { state, dispatch } = useContext(UserContext)
+    
     const [init, setInit] = useState(true)
     const [mainState, setMainState] = useState(initalState)
-    const { state, dispatch } = useContext(UserContext)
     const { loading, error, data } = mainState
 
     useEffect(() => { didMount() }, [])
@@ -39,7 +40,6 @@ function UserManagementScreen(props) {
                 return prev
             })
             if(init) setInit(false)
-
             const data = await getUsers()
             setMainState(prev => {
                 prev = copy(prev)
@@ -57,6 +57,7 @@ function UserManagementScreen(props) {
             })
         }
     }
+
     const deleting = async user => {
         try {
             const resSwal = await swal({
@@ -66,12 +67,10 @@ function UserManagementScreen(props) {
                 dangerMode: true
             })
             if (!resSwal) return
-            const res = await deleteUser(user._id)
-            console.log('res', res)
+            await deleteUser(user._id)
             didMount()
 
         } catch (err) {
-            console.log('err', err)
             await swal({
                 title: 'Had a network error, please try again',
                 icon: 'error',
@@ -81,7 +80,6 @@ function UserManagementScreen(props) {
 
     const updating = user => dispatch({ type: SELECT_USER, selectedUser: user })
     const modalClosed = () => dispatch({ type: SELECT_USER, selectedUser: null })
-
     
     const deleteIcon = <FontAwesomeIcon icon={faTrashAlt} />
     const updateIcon = <FontAwesomeIcon icon={faPen} />
@@ -110,7 +108,6 @@ function UserManagementScreen(props) {
                             <Table data={data} actions={actions} />
                         </div>
             }
-
         </div>
     )
 }

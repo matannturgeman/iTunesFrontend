@@ -1,7 +1,14 @@
-import { BACKEND_URL_DEV } from '../urls/urls.json'
+import { BACKEND_URL_DEV, BACKEND_URL_PROD } from '../urls/urls.json'
+
+const isDev = process.env.REACT_APP_ENV === 'dev'
+const BASE_URL = isDev ?
+    BACKEND_URL_DEV
+    : BACKEND_URL_PROD
+
+console.log('BASE_URL', BASE_URL)
 
 export const getUsers = () => {
-    return fetch(`${BACKEND_URL_DEV}/users`, {
+    return fetch(`${BASE_URL}/users`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -11,7 +18,7 @@ export const getUsers = () => {
 }
 
 export const deleteUser = id => {
-    return fetch(`${BACKEND_URL_DEV}/user/${id}`, {
+    return fetch(`${BASE_URL}/user/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -21,7 +28,7 @@ export const deleteUser = id => {
 }
 
 export const addUser = variables => {
-    return fetch(`${BACKEND_URL_DEV}/sign-up`, {
+    return fetch(`${BASE_URL}/sign-up`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -32,7 +39,7 @@ export const addUser = variables => {
 }
 
 export const updateUser = variables => {
-    return fetch(`${BACKEND_URL_DEV}/user`, {
+    return fetch(`${BASE_URL}/user`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -43,7 +50,7 @@ export const updateUser = variables => {
 }
 
 export const loginUser = variables => {
-    return fetch(`${BACKEND_URL_DEV}/login`, {
+    return fetch(`${BASE_URL}/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -54,7 +61,7 @@ export const loginUser = variables => {
 }
 
 export const getUserById = variables => {
-    return fetch(`${BACKEND_URL_DEV}/loginById`, {
+    return fetch(`${BASE_URL}/loginById`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

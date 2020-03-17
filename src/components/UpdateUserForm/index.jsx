@@ -30,7 +30,6 @@ function UpdateUserForm(props) {
             if(typeof(closeModal) === 'function') closeModal()
             if(typeof(onUpdate) === 'function') onUpdate()
         } catch (err) {
-            console.log('err', err)
             await swal({
                 title: 'Had a network error, please try again',
                 icon: 'error',

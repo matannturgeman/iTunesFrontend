@@ -34,13 +34,13 @@ const RouterComponent = props => {
             <div className="nav-view">
                 <Provider>
                     <Switch>
-                        <Route path="/authScreen" component={AuthScreen} />
+                        <Route path="/auth" component={AuthScreen} />
                         <Route path="/signUp" component={SignUpScreen} />
                         <Route path="/userManagement" component={UserManagementScreen} />
-                        <Route path="/searchScreen" render={componentProps => keepCmpAlive(componentProps, SearchScreen)} />
-                        <Route path="/top10Screen" component={Top10Screen} />
+                        <Route path="/search" render={componentProps => keepCmpAlive(componentProps, SearchScreen)} />
+                        <Route path="/top10" component={Top10Screen} />
                         <Route path="/tuneDetails" component={TuneDetails} />
-                        <Redirect from="/" to={state.user ? "/searchScreen" : "/authScreen"} />
+                        <Redirect from="/" to={state.user ? "/search" : "/auth"} />
                     </Switch>
                 </Provider>
             </div>

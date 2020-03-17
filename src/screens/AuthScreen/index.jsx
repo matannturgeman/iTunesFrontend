@@ -50,7 +50,7 @@ const AuthScreen = props => {
             }
             if (res.success) {
                 dispatch({ type: LOGIN_USER, user: res.user })
-                history.push('/searchScreen')
+                history.push('/search')
             }
         } catch (err) {
             swal({

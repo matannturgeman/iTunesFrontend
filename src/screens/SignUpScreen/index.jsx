@@ -51,7 +51,7 @@ const SignUpScreen = props => {
             }
             if (res.success) {
                 dispatch({ type: LOGIN_USER, user: res.user })
-                history.push('/searchScreen')
+                history.push('/search')
             }
         } catch (err) {
             swal({
@@ -76,7 +76,7 @@ const SignUpScreen = props => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
-                <h3>Have an account? <Link to="/authScreen">please sign in</Link></h3>
+                <h3>Have an account? <Link to="/auth">please sign in</Link></h3>
                 <Button variant="contained" size="small" color="primary" type="submit">
                     Sign up
                 </Button>

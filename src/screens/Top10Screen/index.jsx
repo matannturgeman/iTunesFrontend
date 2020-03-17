@@ -12,11 +12,11 @@ const Top10Screen = props => {
     useCheckLoginUser()
 
     const searches = getTop10Searches()
-    const moveToSearch = search => history.push('/searchScreen', { search })
+    const moveToSearch = search => history.push('/search', { search })
 
     return (
         <section className="top-10-screen">
-            <Link to="/searchScreen" className="back-icon">
+            <Link to="/search" className="back-icon">
                 <FontAwesomeIcon icon={faArrowLeft} />
             </Link>
             <h1 className="title">Top 10 Searches</h1>

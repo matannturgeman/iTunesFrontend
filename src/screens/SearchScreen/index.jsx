@@ -21,8 +21,8 @@ const SearchScreen = props => {
     useEffect(() => {
         history.listen(handleEnterScreen)
     }, [])
-    
-    useEffect(() => { if(enterScreen) handleSubmit() }, [enterScreen, value])
+
+    useEffect(() => { if (enterScreen) handleSubmit() }, [enterScreen, value])
 
     const handleEnterScreen = location => {
         if (!location.state) return;
@@ -30,13 +30,8 @@ const SearchScreen = props => {
         setValue(location.state.search)
     }
 
-    const handleChange = e => {
-        setValue(e.target.value)
-    }
-
-    const goToTop10 = () => {
-        history.push('/top10Screen')
-    }
+    const handleChange = e => setValue(e.target.value)
+    const goToTop10 = () => history.push('/top10')
 
     const handleSubmit = async e => {
         try {

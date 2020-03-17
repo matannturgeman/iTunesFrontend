@@ -17,7 +17,7 @@ function Nav(props) {
 
     const renderNavContent = () => (
         <div className="nav-btns-container">
-            <Link className="nav-btn" to="/searchScreen">Search</Link>
+            <Link className="nav-btn" to="/search">Search</Link>
             <Link className="nav-btn" to="/userManagement">Users Table</Link>
             <FontAwesomeIcon className="log-out-btn" icon={faSignOutAlt} onClick={logOut} />
         </div>

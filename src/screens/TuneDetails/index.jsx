@@ -29,7 +29,7 @@ const TuneDetails = props => {
 
     return (
         <section className="tune-details">
-            <Link to="/searchScreen" className="back-icon">
+            <Link to="/search" className="back-icon">
                 <FontAwesomeIcon icon={faArrowLeft} />
             </Link>
             <div className="details">

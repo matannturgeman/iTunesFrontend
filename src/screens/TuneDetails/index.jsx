@@ -43,7 +43,10 @@ const TuneDetails = props => {
                     </h4>
                     <h4 className="album-name">Release in {formatDate(releaseDate)}</h4>
                     <h4 className="track-price">Buy now only at: {trackPrice}$</h4>
-                    <h4 className="collection-price">Or get the whole album at: {collectionPrice}$</h4>
+                    {
+                        kind === 'song' &&
+                        <h4 className="collection-price">Or get the whole album at: {collectionPrice}$</h4>
+                    }
                 </div>
             </div>
 

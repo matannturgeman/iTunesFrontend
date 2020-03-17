@@ -3,16 +3,24 @@
   height: 7%;
   background: #3f50b5;
   align-items: center;
-  .welcome-statement {
+  justify-content: space-between;
+  .nav-title {
     color: white;
     font-size: 25px;
     height: 100%;
-    width: 30%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    margin-left: 10px;
+    flex-direction: column;
+    .welcome-statement{
+      font-size: 15px;
+      height: fit-content;
+    }
   }
-  .log-out-btn {
+  .nav-btn {
+    text-decoration: none;
     background: #3f4fb5;
     color: white;
     border: 2px solid white;
@@ -20,7 +28,15 @@
     height: 60%;
     font-size: 13px;
     font-weight: bold;
+    display: flex;
     cursor: pointer;
+    align-items: center;
+    padding: 2px 9px;
+
+    &.log-out-btn{
+      margin-right: 10px;
+
+    }
     &:hover {
         background: #485bd5;
     }

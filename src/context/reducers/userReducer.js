@@ -1,6 +1,6 @@
 import {
     LOGIN_USER, LOGIN_USER_STORAGE_KEY, START_LOAD_USER, 
-    END_LOAD_USER, LOG_OUT
+    END_LOAD_USER, LOG_OUT, SELECT_USER
 } from '../../constants.json'
 import { saveToStorage, clearFromStorage } from '../../services/utilsService'
 
@@ -19,6 +19,8 @@ const userReducer = (state, action) => {
         case LOG_OUT:
             clearFromStorage(LOGIN_USER_STORAGE_KEY)
             return { ...state, user: null };
+        case SELECT_USER:
+            return { ...state, selectedUser: action.selectedUser };
         default:
             return { ...state };
     }

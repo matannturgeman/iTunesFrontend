@@ -1,10 +1,11 @@
 import React, { useReducer, Fragment } from 'react'
 import userReducer from './reducers/userReducer'
-import InitalLogin from '../components/InitalLogin'
+import InitalLogin from '../components/InitalLogin/index'
 
 const initialState = {
     user: null,
-    loading: false
+    loading: false,
+    selectedUser: null
 }
 
 const UserContext = React.createContext(initialState);

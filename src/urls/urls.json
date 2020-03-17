@@ -1,4 +1,4 @@
 {
     "BACKEND_URL_DEV": "http://localhost:9000",
-    "BACKEND_URL_PROD": "http://INSERT_DOMIN_HERE:9000"
+    "BACKEND_URL_PROD": "http://localhost:9000"
 }

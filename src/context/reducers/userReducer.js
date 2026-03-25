@@ -2,7 +2,7 @@ import { saveToStorage, clearFromStorage } from '../../services/utilsService'
 import {
     LOGIN_USER, LOGIN_USER_STORAGE_KEY, START_LOAD_USER,
     END_LOAD_USER, LOG_OUT, SELECT_USER
-} from '../../constants.json'
+} from '../../constants'
 
 const userReducer = (state, action) => {
     switch (action.type) {

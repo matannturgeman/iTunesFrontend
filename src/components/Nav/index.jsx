@@ -1,7 +1,7 @@
 import React, { useContext, Fragment } from 'react'
 import { UserContext } from '../../context/userContext'
 import { useHistory, Link } from 'react-router-dom'
-import { LOG_OUT } from '../../constants.json'
+import { LOG_OUT } from '../../constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import './index.scss'

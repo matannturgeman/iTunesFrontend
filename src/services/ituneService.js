@@ -1,4 +1,4 @@
-import { BACKEND_URL_DEV, BACKEND_URL_PROD } from '../urls/urls.json'
+import { BACKEND_URL_DEV, BACKEND_URL_PROD } from '../urls/urls'
 import { loadFromStorage, saveToStorage, sliceFirst10 } from './utilsService'
 
 const isDev = process.env.REACT_APP_ENV === 'dev'

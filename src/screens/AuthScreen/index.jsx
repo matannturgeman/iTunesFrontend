@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { loginUser } from '../../services/userService'
 import { isValidEmail } from '../../services/utilsService'
 import { UserContext } from '../../context/userContext'
-import { LOGIN_USER } from '../../constants.json'
+import { LOGIN_USER } from '../../constants'
 import swal from 'sweetalert';
 import './index.scss'
 

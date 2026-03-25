@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, Fragment } from 'react'
-import { LOGIN_USER_STORAGE_KEY, START_LOAD_USER, END_LOAD_USER } from '../../constants.json'
+import { LOGIN_USER_STORAGE_KEY, START_LOAD_USER, END_LOAD_USER } from '../../constants'
 import { loadFromStorage } from '../../services/utilsService'
 import { getUserById } from '../../services/userService'
 import { UserContext } from '../../context/userContext'

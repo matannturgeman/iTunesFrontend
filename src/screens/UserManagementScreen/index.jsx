@@ -10,7 +10,7 @@ import UpdateUserForm from '../../components/UpdateUserForm'
 import useCheckLoginUser from '../../hooks/useCheckLoginUser'
 import { getUsers, deleteUser } from '../../services/userService'
 import { copy } from '../../services/utilsService'
-import { SELECT_USER } from '../../constants.json'
+import { SELECT_USER } from '../../constants'
 import { UserContext } from '../../context/userContext'
 import './index.scss'
 

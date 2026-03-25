@@ -1,0 +1,7 @@
+export const ITUNE_USER = 'ITUNE_USER'
+export const LOGIN_USER = 'LOGIN_USER'
+export const LOGIN_USER_STORAGE_KEY = 'LOGIN_USER_STORAGE_KEY'
+export const START_LOAD_USER = 'START_LOAD_USER'
+export const END_LOAD_USER = 'END_LOAD_USER'
+export const LOG_OUT = 'LOG_OUT'
+export const SELECT_USER = 'SELECT_USER'

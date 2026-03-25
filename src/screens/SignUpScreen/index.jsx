@@ -7,7 +7,7 @@ import InputMUI from '../../components/Input'
 import { addUser } from '../../services/userService'
 import { isValidEmail } from '../../services/utilsService'
 import { UserContext } from '../../context/userContext'
-import { LOGIN_USER } from '../../constants.json'
+import { LOGIN_USER } from '../../constants'
 import './index.scss'
 
 const SignUpScreen = props => {

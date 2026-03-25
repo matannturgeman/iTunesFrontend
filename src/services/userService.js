@@ -1,4 +1,4 @@
-import { BACKEND_URL_DEV, BACKEND_URL_PROD } from '../urls/urls.json'
+import { BACKEND_URL_DEV, BACKEND_URL_PROD } from '../urls/urls'
 
 const isDev = process.env.REACT_APP_ENV === 'dev'
 const BASE_URL = isDev ?
